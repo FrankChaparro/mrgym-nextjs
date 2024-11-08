@@ -1,13 +1,11 @@
 import React from 'react'
+import {Client} from '@/Interface/Client'
 
-interface Client {
-    nombre_cliente: string;
-    apellido_cliente: string;
-    telefono_cliente: string;
-    dni_cliente: string;
-    email: string;
-    miembro: boolean;
+function editar (){
+    alert("editar")
 }
+
+
 
 function Table({data}: {data: Client[];}) {
     return (
@@ -54,6 +52,11 @@ function Table({data}: {data: Client[];}) {
                                 {client.email}
                             </td>
                             <td className="px-6 py-4">{client.miembro ? 'Sí' : 'No'}</td>
+
+                            <td className='space-x-2'>
+                                <button onClick={editar}>editar</button>
+                                <button>eliminar</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
