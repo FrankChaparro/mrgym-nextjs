@@ -1,23 +1,26 @@
 
 // por el momento miebro se guardara como si
-//import {Client} from '@/Interface/Client'
+import {Client} from '@/Interface/Client'
 
 
-const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+function Register({ onFormSubmit}: { onFormSubmit: (data: Client) => void;}) {
 
-    const data: { [key: string]: string } = {};
-    formData.forEach((value, key) => {
-        data[key] = value.toString();
-    });
-
-    console.log("Datos del formulario:", data);
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
     
-  };
+        const data: Client = {
+            nombre_cliente: formData.get("nombre_cliente") as string,
+            apellido_cliente: formData.get("apellido_cliente") as string,
+            telefono_cliente: formData.get("telefono_cliente") as string,
+            dni_cliente : formData.get("dni_cliente") as string,
+            email: formData.get("email") as string,
+            miembro : false
+        };
+    
+        onFormSubmit(data);
+    };
 
-
-function Register() {
     return (
         <div className=" w-full gap-16 p-4  font-[sans-serif] border-2 border-gray-200  rounded-lg text-black">
             <form className="" onSubmit={onSubmit}>
