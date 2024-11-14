@@ -32,7 +32,7 @@ function Miembros() {
           }
 
           const data = await response.json();
-          console.log(data)
+          console.log(JSON.stringify(data))
           setClients(data);
 
         } catch (error) {
@@ -77,6 +77,8 @@ function Miembros() {
           icon: "success"
         });
         console.log('Cliente registrado con éxito:', newClient);
+
+        
 
         setQrDniCliente(newClient.dni_cliente);
 
