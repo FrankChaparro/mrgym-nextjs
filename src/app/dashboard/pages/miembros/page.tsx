@@ -80,7 +80,8 @@ function Miembros() {
 
         
 
-        setQrDniCliente(newClient.dni_cliente);
+        //setQrDniCliente(newClient.dni_cliente);
+        setQrDniCliente("2344355656");
 
         //actualizar la lista de clientes
         setClients((prevClients) => [...prevClients, newClient]);
@@ -102,14 +103,14 @@ function Miembros() {
 
 
           <Register onFormSubmit={RegistrarCliente}></Register>
-
-          <Table data={clients}></Table>
-
           {qrDniCliente && (
             <div className="mt-4 flex justify-center">
               <QRCode value={qrDniCliente} size={256} bgColor="#282c34" fgColor="#fff" level="H" />
             </div>
           )}
+          <Table data={clients}></Table>
+
+         
 
         </div>
 
